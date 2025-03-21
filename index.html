@@ -4,517 +4,652 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Makes Possible - Pioneering the Future of General Intelligence</title>
-    <link rel ="stylesheet" href = "styles.css">
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #121212;
+            --primary-white: #ffffff;
+            --secondary-white: #f3f3f3;
+            --accent-color: #3a3af3;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-white);
+        }
+
+        .cta-button {
+            background: var(--accent-color);
+            color: var(--primary-white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(58, 58, 243, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--secondary-white);
+        }
+
+        /* About Section */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Vision & Mission */
+        .vision-mission {
+            background-color: var(--secondary-black);
+            border-radius: 16px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .vision-mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(58, 58, 243, 0.05), transparent);
+            z-index: 0;
+        }
+
+        .vision-mission-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vision-mission h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .vision-mission p {
+            color: var(--secondary-white);
+            line-height: 1.6;
+        }
+
+        /* Research & Innovations */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-card p {
+            color: var(--secondary-white);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--accent-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background: var(--secondary-black);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Community Section */
+        .community-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .community-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .community-button:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(58, 58, 243, 0.2);
+        }
+
+        /* Call to Action */
+        .join-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            border-radius: 4px;
+            color: var(--primary-white);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-color);
+            color: var(--primary-white);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: rgba(58, 58, 243, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 4rem 0;
+            margin-top: 6rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--secondary-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-white);
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--secondary-white);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
 </head>
 <body>
-    <!-- Particle Background -->
-    <div id="particles-js"></div>
-
     <!-- Navigation -->
     <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">AI Makes <span>Possible</span></a>
-            <div class="menu-btn">☰</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#agents">AI Agents</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#roadmap">Roadmap</a></li>
-                <li><a href="#tools">Tools</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-            </ul>
+        <div class="container">
+            <div class="logo">AI <span>Makes Possible</span></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#vision">Vision</a>
+                <a href="#research">Research</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#community">Community</a>
+            </div>
+            <button class="cta-button">Join the Movement</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <p class="hero-tagline fade-in">Pioneering the Future</p>
-            <h1 class="fade-in delay-1">AI Makes Possible</h1>
-            <p class="fade-in delay-2">Building the next generation of Artificial General Intelligence to revolutionize how humans interact with technology.</p>
-            <div class="hero-cta fade-in delay-3">
-                <a href="#about" class="btn btn-primary">Explore AGI</a>
-                <a href="#community" class="btn btn-secondary">Join the Revolution</a>
-                <a href="#tools" class="btn btn-primary">Discover AI Products</a>
+    <section class="hero">
+        <div class="hero-bg">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0a0a0a" />
+                        <stop offset="100%" stop-color="#121212" />
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" fill="url(#gradient)" />
+                <g fill="none" stroke="#3a3af3" stroke-width="0.1">
+                    <circle cx="20" cy="30" r="10" />
+                    <circle cx="70" cy="60" r="20" />
+                    <circle cx="40" cy="80" r="15" />
+                    <path d="M10,10 Q30,30 50,20 T90,40" />
+                    <path d="M80,80 Q60,60 40,70 T10,50" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">AI Makes Possible – Pioneering the Future of General Intelligence.</h1>
+                <p class="hero-subtitle">We're building the foundation for the next generation of AI that thinks, learns, and innovates like never before.</p>
+                <button class="cta-button">Explore AI</button>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>About AI Makes Possible</h2>
-                <p>Pioneering the evolution of Artificial General Intelligence</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>AI Makes Possible is at the forefront of AGI development, creating self-learning systems that can reason, adapt, and solve complex problems across domains without specific programming for each task.</p>
-                    <p>Our team of world-class researchers, engineers, and AI ethicists are working together to ensure AGI benefits humanity through responsible development and deployment.</p>
-                    <p>We combine cutting-edge neural networks, reinforcement learning, and novel algorithmic approaches to push the boundaries of what AI can accomplish.</p>
+            <h2 class="section-title fade-in">About AI Makes Possible</h2>
+            <div class="section-grid">
+                <div class="about-content fade-in delay-1">
+                    <p>AI Makes Possible is a cutting-edge initiative dedicated to advancing the field of Artificial General Intelligence (AGI). We're pushing the boundaries of what's technically feasible, combining state-of-the-art machine learning architectures with innovative approaches to cognition and reasoning.</p>
+                    <p>Our interdisciplinary team of researchers, engineers, and ethicists is working collaboratively to develop AI systems that demonstrate human-like understanding, adaptability, and problem-solving capabilities across domains.</p>
                 </div>
-                <div class="about-img glass-card">
-                    <img src="/api/placeholder/600/400" alt="AI evolution timeline">
+                <div class="about-image fade-in delay-2">
+                    <img src="/api/placeholder/600/400" alt="AI research visualization" />
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Vision & Mission Section -->
-    <section id="vision">
+    <section id="vision" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Vision & Mission</h2>
-                <p>Building the foundation for truly intelligent systems</p>
-            </div>
-            <div class="vision-mission">
-                <div class="glass-card vision-card">
-                    <h3>Our Vision</h3>
-                    <p>"To build a truly intelligent system capable of reasoning, learning, and adapting like humans."</p>
-                    <p>We envision a future where AGI works alongside humans, augmenting our capabilities and helping solve the world's most pressing challenges - from climate change to healthcare advancement.</p>
+            <h2 class="section-title fade-in">Vision & Mission</h2>
+            <div class="vision-mission fade-in delay-1">
+                <div class="vision-mission-content">
+                    <h3>Vision</h3>
+                    <p>To create general artificial intelligence that enhances human creativity, solves complex global challenges, and opens new frontiers of scientific discovery while ensuring these capabilities benefit humanity.</p>
                 </div>
-                <div class="glass-card mission-card">
-                    <h3>Our Mission</h3>
-                    <ul class="feature-list">
-                        <li>Develop self-learning AI models that continuously evolve</li>
-                        <li>Ensure ethical AI deployment through rigorous testing</li>
-                        <li>Collaborate with researchers, businesses, and professionals</li>
-                        <li>Offer AI-driven professional and legal solutions</li>
-                    </ul>
+            </div>
+            <div class="vision-mission fade-in delay-2">
+                <div class="vision-mission-content">
+                    <h3>Mission</h3>
+                    <p>We're pursuing a step-wise approach to AGI, developing increasingly capable systems with human-aligned values, robust safety guarantees, and transparent decision-making processes. Our multidisciplinary research focuses on multimodal learning, transferable knowledge representation, adaptive reasoning, and alignment techniques.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Agents Section -->
-    <section id="agents">
+    <!-- Research & Innovations -->
+    <section id="research" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>AI Agents</h2>
-                <p>Professional, Legal & AI Product Assistance</p>
-            </div>
-            <div class="agents-grid">
-                <div class="glass-card agent-card">
-                    <div class="agent-icon">💼</div>
-                    <h3>AI Professional Agent</h3>
-                    <p>Provides AI-driven career, business, and development guidance. Suggests custom AI implementations for companies based on their unique needs and goals.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="glass-card agent-card">
-                    <div class="agent-icon">⚖️</div>
-                    <h3>AI Legal Agent</h3>
-                    <p>Offers AI-based legal assistance for contracts, policies, and compliance. Analyzes legal documentation and provides AI-driven insights to streamline legal processes.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-                <div class="glass-card agent-card">
-                    <div class="agent-icon">🔍</div>
-                    <h3>AI Product Agent</h3>
-                    <p>Recommends the best AI tools and solutions for businesses and developers. Conversational AI bot that interacts with users for tailored AI product suggestions.</p>
-                    <a href="#" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Section -->
-    <section id="research">
-        <div class="container">
-            <div class="section-header">
-                <h2>AI Research & Innovations</h2>
-                <p>Pushing the boundaries of AGI development</p>
-            </div>
+            <h2 class="section-title fade-in">Research & Innovations</h2>
             <div class="research-grid">
-                <div class="glass-card research-card">
-                    <img src="/api/placeholder/400/250" alt="Neural networks research" class="research-img">
-                    <div class="research-content">
-                        <h3>Neural Evolution</h3>
-                        <p>Our research on self-evolving neural networks that adapt to new tasks without explicit training.</p>
-                        <a href="#" class="btn btn-primary">View Research</a>
-                    </div>
+                <div class="research-card fade-in delay-1">
+                    <h3>Foundational Models</h3>
+                    <p>Our large-scale pre-trained models establish new state-of-the-art benchmarks across language understanding, reasoning, and creative generation tasks.</p>
                 </div>
-                <div class="glass-card research-card">
-                    <img src="/api/placeholder/400/250" alt="Reinforcement learning" class="research-img">
-                    <div class="research-content">
-                        <h3>Advanced Reinforcement Learning</h3>
-                        <p>Novel approaches to multi-agent reinforcement learning for complex problem-solving.</p>
-                        <a href="#" class="btn btn-primary">View Research</a>
-                    </div>
+                <div class="research-card fade-in delay-2">
+                    <h3>Multimodal Intelligence</h3>
+                    <p>Seamlessly integrating visual, auditory, and textual data streams for comprehensive understanding and generation capabilities.</p>
                 </div>
-                <div class="glass-card research-card">
-                    <img src="/api/placeholder/400/250" alt="Ethical AI research" class="research-img">
-                    <div class="research-content">
-                        <h3>Ethical AGI Frameworks</h3>
-                        <p>Developing robust frameworks for ensuring AGI aligns with human values and ethics.</p>
-                        <a href="#" class="btn btn-primary">View Research</a>
-                    </div>
+                <div class="research-card fade-in delay-3">
+                    <h3>Causal Reasoning</h3>
+                    <p>Developing algorithms that model causal relationships, enabling more robust generalization to new tasks and domains.</p>
+                </div>
+                <div class="research-card fade-in delay-1">
+                    <h3>Alignment & Safety</h3>
+                    <p>Creating innovations in value alignment, interpretability, and robustness to ensure AI systems act according to human intentions.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Roadmap Section -->
-    <section id="roadmap">
+    <section id="roadmap" class="section">
         <div class="container">
-            <div class="section-header">
-                <h2>Roadmap - The Future of AGI</h2>
-                <p>Charting our course to Artificial General Intelligence</p>
-            </div>
-            <div class="roadmap">
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content glass-card">
-                        <h3>Phase 1: Foundation Models</h3>
-                        <p>Development of large-scale foundation models capable of understanding and generating human language, code, and multimodal content.</p>
+            <h2 class="section-title fade-in">Roadmap to AGI</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in delay-1">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Foundation Phase</h3>
+                        <p>Deployment of highly capable multimodal models with improved reasoning and planning capabilities.</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content glass-card">
-                        <h3>Phase 2: Contextual Understanding</h3>
-                        <p>Enhancing AI's ability to understand complex contexts, maintain long-term coherence, and reason over extended sequences.</p>
+                <div class="timeline-item fade-in delay-2">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2027</div>
+                        <h3>Integration Phase</h3>
+                        <p>Development of systems demonstrating cross-domain transfer learning and generalization.</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content glass-card">
-                        <h3>Phase 3: Self-Improvement</h3>
-                        <p>Creating systems capable of improving their own code, architecture, and learning capabilities through recursive self-enhancement.</p>
+                <div class="timeline-item fade-in delay-3">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2029</div>
+                        <h3>Emergence Phase</h3>
+                        <p>Creation of AI with robust causal reasoning, open-ended problem solving, and self-improvement capabilities.</p>
                     </div>
                 </div>
-                <div class="roadmap-item">
-                    <div class="roadmap-dot"></div>
-                    <div class="roadmap-content glass-card">
-                        <h3>Phase 4: Human-Level AGI</h3>
-                        <p>Achieving artificial general intelligence capable of performing any intellectual task that a human can do across domains.</p>
+                <div class="timeline-item fade-in delay-1">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2032</div>
+                        <h3>AGI Achievement</h3>
+                        <p>First deployments of general intelligence systems with human-level performance across all cognitive domains.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- AI Tools Section (Continuation) -->
-<div class="tools-grid">
-    <div class="glass-card">
-        <h3>AI Search Engine</h3>
-        <p>Advanced search capabilities for legal, professional, and AI-related queries with contextual understanding.</p>
-        <p>Our semantic search technology understands intent beyond keywords, delivering precise results even for complex queries.</p>
-        <a href="#" class="btn btn-primary">Try Search</a>
-    </div>
-    <div class="glass-card">
-        <h3>Interactive AI Chatbots</h3>
-        <p>Intelligent conversational agents providing instant assistance across multiple domains and use cases.</p>
-        <p>Built on our proprietary AGI framework, these chatbots learn and adapt to user interactions over time.</p>
-        <a href="#" class="btn btn-primary">Chat Now</a>
-    </div>
-    <div class="glass-card">
-        <h3>Document Analysis</h3>
-        <p>Automated processing and analysis of contracts, legal documents, research papers, and business reports.</p>
-        <p>Extract key insights, identify potential issues, and generate comprehensive summaries in seconds.</p>
-        <a href="#" class="btn btn-primary">Upload Document</a>
-    </div>
-    <div class="glass-card">
-        <h3>AGI Simulations</h3>
-        <p>Experimental environments for understanding future AGI impacts and testing safety frameworks.</p>
-        <p>Explore scenarios and interactions in controlled virtual settings to prepare for advanced AI integration.</p>
-        <a href="#" class="btn btn-primary">Run Simulation</a>
-    </div>
-</div>
-</div>
-</section>
-
-<!-- Community Section -->
-<section id="community">
-    <div class="container">
-        <div class="section-header">
-            <h2>Community & Collaboration</h2>
-            <p>Join the global AGI movement</p>
-        </div>
-        <div class="community-content">
-            <div class="community-text">
-                <h3>Join the AGI Revolution</h3>
-                <p>Connect with a thriving global community of AI researchers, developers, ethicists, and enthusiasts working together to shape the future of intelligence.</p>
-                <p>Our community platform offers forums for discussion, collaboration opportunities, and access to exclusive events and resources.</p>
-                <div class="community-features">
-                    <div class="glass-card" style="margin-bottom: 2rem;">
-                        <h4>Upcoming Events</h4>
-                        <ul class="feature-list">
-                            <li>Virtual AGI Summit - April 2025</li>
-                            <li>AI Ethics Hackathon - May 2025</li>
-                            <li>Neural Networks Workshop Series - Monthly</li>
-                        </ul>
-                    </div>
-                    <a href="#" class="btn btn-secondary">Join Community</a>
+    <!-- Community Section -->
+    <section id="community" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Join Our Community</h2>
+            <p class="text-center fade-in delay-1" style="max-width: 700px; margin: 0 auto 3rem;">Become part of a global network of researchers, engineers, and enthusiasts collaborating to make AGI a reality.</p>
+            <div class="community-buttons">
+                <div class="community-button fade-in delay-1">
+                    <span>Research</span>
                 </div>
-            </div>
-            <div class="community-img glass-card">
-                <img src="/api/placeholder/600/400" alt="AI community collaboration">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Courses Section -->
-<section id="courses">
-    <div class="container">
-        <div class="section-header">
-            <h2>AI-Based Courses & Learning Hub</h2>
-            <p>Master the skills needed for the AGI revolution</p>
-        </div>
-        <div class="courses-grid">
-            <div class="glass-card course-card">
-                <img src="/api/placeholder/400/200" alt="AI fundamentals course" class="course-img">
-                <div class="course-content">
-                    <span class="course-level">Beginner</span>
-                    <h3>AI Fundamentals</h3>
-                    <p>A comprehensive introduction to artificial intelligence concepts, history, and applications.</p>
-                    <a href="#" class="btn btn-primary">Enroll Now</a>
+                <div class="community-button fade-in delay-2">
+                    <span>Collaborate</span>
                 </div>
-            </div>
-            <div class="glass-card course-card">
-                <img src="/api/placeholder/400/200" alt="Deep learning course" class="course-img">
-                <div class="course-content">
-                    <span class="course-level">Intermediate</span>
-                    <h3>Deep Learning Mastery</h3>
-                    <p>Dive into neural networks, convolutional networks, and transformers with hands-on projects.</p>
-                    <a href="#" class="btn btn-primary">Enroll Now</a>
-                </div>
-            </div>
-            <div class="glass-card course-card">
-                <img src="/api/placeholder/400/200" alt="AGI research course" class="course-img">
-                <div class="course-content">
-                    <span class="course-level">Advanced</span>
-                    <h3>AGI Research & Development</h3>
-                    <p>Explore cutting-edge approaches to artificial general intelligence and contribute to real research.</p>
-                    <a href="#" class="btn btn-primary">Enroll Now</a>
+                <div class="community-button fade-in delay-3">
+                    <span>Forums</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Pricing Section -->
-<section id="pricing">
-    <div class="container">
-        <div class="section-header">
-            <h2>Premium AGI Plans</h2>
-            <p>Access advanced AI capabilities and exclusive services</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="glass-card pricing-card">
-                <h3>Basic</h3>
-                <div class="price">$49<span>/month</span></div>
-                <p>Essential AI tools for individuals and small teams</p>
-                <ul class="feature-list">
-                    <li>AI Assistant (5,000 queries/month)</li>
-                    <li>Document Analysis (100 pages/month)</li>
-                    <li>Basic API Access</li>
-                    <li>Community Forum Access</li>
-                    <li>Email Support</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Get Started</a>
-            </div>
-            <div class="glass-card pricing-card">
-                <div class="popular-tag">Popular</div>
-                <h3>Professional</h3>
-                <div class="price">$149<span>/month</span></div>
-                <p>Advanced AI solutions for professionals and growing businesses</p>
-                <ul class="feature-list">
-                    <li>AI Assistant (Unlimited queries)</li>
-                    <li>Document Analysis (1,000 pages/month)</li>
-                    <li>Advanced API Access</li>
-                    <li>AI Legal Agent</li>
-                    <li>AI Professional Agent</li>
-                    <li>Priority Support</li>
-                    <li>Monthly Research Reports</li>
-                </ul>
-                <a href="#" class="btn btn-secondary">Get Started</a>
-            </div>
-            <div class="glass-card pricing-card">
-                <h3>Enterprise</h3>
-                <div class="price">$499<span>/month</span></div>
-                <p>Complete AGI integration for organizations with advanced needs</p>
-                <ul class="feature-list">
-                    <li>All Professional Features</li>
-                    <li>Custom AI Model Development</li>
-                    <li>Dedicated AI Consulting</li>
-                    <li>On-premise Deployment Options</li>
-                    <li>Custom Integrations</li>
-                    <li>24/7 Premium Support</li>
-                    <li>Executive Briefings</li>
-                </ul>
-                <a href="#" class="btn btn-primary">Contact Sales</a>
+    <!-- Call to Action -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Join the Movement</h2>
+            <div class="join-form fade-in delay-1">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="interests">Areas of Interest</label>
+                    <input type="text" id="interests" placeholder="E.g., Research, Development, Ethics">
+                </div>
+                <button class="form-submit">Subscribe to Updates</button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-about">
-                <a href="#" class="footer-logo">AI Makes <span>Possible</span></a>
-                <p>Pioneering the future of Artificial General Intelligence to revolutionize how humans interact with technology.</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon">📱</a>
-                    <a href="#" class="social-icon">📘</a>
-                    <a href="#" class="social-icon">📸</a>
-                    <a href="#" class="social-icon">📽️</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>AI Makes Possible</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Research</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Datasets</a></li>
+                        <li><a href="#">Models</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Ethics Statement</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#vision">Vision & Mission</a></li>
-                    <li><a href="#agents">AI Agents</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#tools">AI Tools</a></li>
-                    <li><a href="#community">Community</a></li>
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Documentation</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Makes Possible. All rights reserved.</p>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 AI Makes Possible. All rights reserved.</p>
-        </div>
-    </div>
-</footer>
-
-<!-- Scripts -->
-<script>
-    // Navigation menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-    });
-    
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    menuBtn.textContent = '☰';
-                }
-            }
-        });
-    });
-    
-    // Animation on scroll
-    const observerOptions = {
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-            }
-        });
-    }, observerOptions);
-    
-    document.querySelectorAll('.glass-card, .section-header, .roadmap-item').forEach(element => {
-        element.style.opacity = '0';
-        observer.observe(element);
-    });
-</script>
-
-<!-- Particle.js Script -->
-<script>
-    // Simulated particles effect
-    document.addEventListener('DOMContentLoaded', function() {
-        const particlesJS = document.getElementById('particles-js');
-        const particleCount = 50;
-        
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = Math.random() * 3 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.backgroundColor = 'rgba(0, 247, 255, ' + (Math.random() * 0.5) + ')';
-            particle.style.borderRadius = '50%';
-            particle.style.top = Math.random() * 100 + 'vh';
-            particle.style.left = Math.random() * 100 + 'vw';
-            particle.style.boxShadow = '0 0 10px rgba(0, 247, 255, 0.7)';
-            
-            // Animation
-            particle.style.animation = 'float ' + (Math.random() * 15 + 5) + 's linear infinite';
-            particle.style.opacity = Math.random() * 0.5;
-            
-            particlesJS.appendChild(particle);
-        }
-        
-        // Add floating animation
-        const style = document.createElement('style');
-        style.innerHTML = `
-            @keyframes float {
-                0% {
-                    transform: translateY(0) translateX(0);
-                }
-                25% {
-                    transform: translateY(-20px) translateX(10px);
-                }
-                50% {
-                    transform: translateY(0) translateX(20px);
-                }
-                75% {
-                    transform: translateY(20px) translateX(10px);
-                }
-                100% {
-                    transform: translateY(0) translateX(0);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    });
-</script>
+    </footer>
+</body>
+</html>
